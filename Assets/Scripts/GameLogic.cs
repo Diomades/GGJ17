@@ -34,4 +34,19 @@ public class GameLogic : MonoBehaviour {
 
         return true; //At this point we've checked both lists and can confirm it's correct
     }
+
+    public void FakeCrash()
+    {
+        //Start of Crash
+        StartCoroutine(Pause(3.0f));
+    }
+
+    private IEnumerator Pause(float p)
+    {
+        //During Crash
+        yield return new WaitForSeconds(p);
+        //End of "Crash"
+        Debug.Log("CRASH");
+        //Application.Quit();
+    }
 }

@@ -222,104 +222,6 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224303037792253564, guid: fc99494158efe2f4ca27dc069069ea9f,
     type: 2}
   m_PrefabInternal: {fileID: 232662155}
---- !u!1 &237636168
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 237636169}
-  - component: {fileID: 237636171}
-  - component: {fileID: 237636170}
-  m_Layer: 5
-  m_Name: TextEntry1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &237636169
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 237636168}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1662060005}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &237636170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 237636168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: "\uFEFF[18:23]<Anzekay> Hey!\r\n[18:23]<GameDad> Hey Ben!\r\n[18:24]<Anzekay>
-    I guess Jess will be joining us soon?\r\n[18:25]<GameDad> Yep any moment\r\n[18:26]
-    * Joins: Ninjeska (@Ninjeska)\r\n[18:27]<Anzekay> helloo\r\n[18:27]<Ninjeska>
-    hello hello\r\n[18:28]<GameDad> Hey Jess!\r\n[18:28]<GameDad> so I dunno about
-    you two but I\u2019m feeling pretty crook atm\r\n[18:28]<GameDad> whatever we
-    do will have to be pretty small/simple\r\n[18:29]<Ninjeska> I am ok with this\r\n[18:29]<Anzekay>
-    well this is my first GGJ so that sounds great\r\n[18:30]<Anzekay> we have the
-    theme now so did either of you have any good ideas??\r\n[18:31]<Ninjeska> a few!
-    \r\n[18:31]<GameDad> yeah I had a couple. It\u2019s a neat theme\r\n[18:32]<Anzekay>
-    agreed\r\n[18:32]<Anzekay> I have a couple ideas too but..\r\n[18:32]<GameDad>
-    hm?\r\n[18:33]<Anzekay> well it\u2019d be a bit of a weird thing\r\n[18:33]<Anzekay>
-    here let me get you a link t\u036E\u031A\u0322\u032C\u0331\u0316\u033C\u0319o\u0357\u036D\u0312\u0310\u035F\u0349
-    \u030B\u0301\u0365\u0312\u0311\u0310\u0312\u035Fi\u0365\u034At\u036B\u034A\u031A\u035B\u0363\u0361\u0332\u033B\u0347\u0319\r\n[\u0307\u0344\u0332\u0331\u0317\u0345\u0355\u03181\u0331\u032B\u032B\u0339\u03238\u035A\u034D\u032F\u032C\u0324:\u0365\u036B\u0310\u032C\u034D\u0354\u032C\u03163\u035B\u0306\u034B\u036B\u034E\u031E\u031F\u03235\u0316\u0332\u031F]\u0302\u0300\u0343\u0368\u0353\u031C\u0354\u032C
-    \u030D\u030C\u0314\u031A\u036A\u0320\u0330\u0319\u034E\u0318\u0347\u035A<\u0369\u030C\u034B\u033E\u033CA\u033D\u032B\u034E\u032F\u0354\u0348n\u030B\u0361\u032A\u0317z\u0301\u0367\u0338\u032F\u0323\u0331\u032B\u0339\u032Ae\u0357\u0358\u032A\u0326\u031F\u0353k\u0302\u030A\u030A\u0309\u0357\u0334a\u0344\u0305\u034A\u033E\u034B\u0335\u035A\u032A\u034E\u0318\u032A\u032F\u033By\u036A\u036B\u0367\u036B\u030E\u0338\u0348>\u0303\u034F
-    \u0364\u030F\u031A\u0313\u0368n\u0369\u0352\u036D\u0342\u034A\u0358\u0355\u032C\u031C\u0324
-    \u0313\u031A\u036B\u0307\u0360\u031C\u0359z\u0350\u0314\u034A\u0309\u0307\u0340\u032F\u0333\u032D\u0326\u0348n\u0343\u036F\u0307\u0301\u0309\u0314\u0313\u0335\u0349\u0319\u0347\u0349g\u031A\u030C\u030B\u0359\u0333\u0359\u0331\u0317r\u031A\u0302\u0489\u0345\u0316
-    \u0367\u0350\u030A\u035Ab\u036E\u0350\u0309\u0360\u0331\u0331\u0319\u033A\u035A\u031F\u032As\u0357\u0358\u0359\u031C\u0353\u0333\u0325
-    \u0314\u036C\u0314\u033D\u0306\u0351\u036B\u0318\u0318\u032Fz\u035D\u0323\u032C\u035Av\u0307\u036C\u0350\u035B\u0301\u0317\u032D\u0323\u032F\u0339\u0318\u0316a\u036B\u034C\u0341\u031D\u0318\u0318\u0333r\u030E\u033D\u033E\u0309\u0325\u032A
-    \u0306\u033F\u0314\u030B\u0302\u034Fv\u034C\u030E\u0312\u030E\u034B\u0314\u0327\u0319\u032Df\u0305\u0307\u036E\u033A\u0339\u031D\u0330
-    \u036E\u033D\u0363\u0352\u034A\u0309\u0304\u0341\u0332\u031E\u034D\u0326\u0356\u0332j\u031D\u0316\u0320b\u036E\u0307\u0350\u0300\u0312\u035C\u032E\u0348\u0317\u0319e\u0347\u0324\u0355\u0317\u033C\u033Cx\u030B\u0314\u0346\u0361\u035A\u0318v\u0342\u036C\u0304\u0365\u0355\u0332\u0320\u0325\u032Da\u0301\u035F\u0349t\u031A\u035E\u032B\u031E\u031C\u0339\u0329
-    \u0352\u0309\u0344\u033F\u0302\u0310\u0357b\u0314\u031Fa\u0300\u030D\u030A\u030E\u0300
-    \u0363\u0330n\u0304\u036A\u030B\u030B\u036B\u0358\u035A\u032D\u032D\u035A\u0326
-    \u0344\u0358p\u030E\u031A\u031C\u032A\u035A\u0323b\u030E\u033E\u0302\u0368\u0300\u0365\u0334\u0330\u0316\u0347\u0326\u034E\u0326\u032Cq\u033F\u0316\u0359\u0345v\u0310\u036A\u0302\u034A\u033F\u033E\u0362\u031F\u0318\u0348\u031C\u0320\u031C\u034Ea\u034B\u0302\u036D\u036A\u0364\u036C\u0367\u033A\u0318t\u034B\u035D
-    \u0350\u0312\u034A\u0334n\u033F\u0305\u034C\u0348\u034D\u034E\u0348\u0324e\u0303\u036B\u0306\u0345\u0353\u031E\u0317\u034Eg\u0305\u0368\u0363\u0343\u035Fv\u0314\u030D\u036B\u0366\u036F\u0327\u0339\u033B\u034E\u0325\u0317\u0354\u0316s\u0352\u036A\u0351\u035F\u0318\u031F\u0332\u0323v\u036A\u0303\u0352\u035B\u0303\u0311\u036B\u035C\u0333\u032C\u0324\u033B\u0325\u031Cp\u0323\u0353\u0354\u0339\u031D\u0359\u031Dv\u0363\u036E\u0367\u034A\u031A\u034D\u031Fn\u034B\u033E\u0366\u0346\u033Dy\u035D\u0319\u0326
-    \u0347\u0354\u0329\u0348\u0326v\u0313\u032A\u032Ea\u030F\u030C\u0308\u0310\u0301\u034F\u032B\u0355\u0317\u0319g\u0366\u0364\u030B\u034C\u0312\u0369\u0340\u0347\u033Ar\u0368\u033F\u0311\u0302\u033F\u0315\u032E\u0317\u0329\u0317\u032D\u0325y\u034A\u0301y\u0352\u0307\u034C\u0341\u031E\u0317\u031E\u0329\u0355\u034Dv\u036E\u0363\u0367\u032B\u033C\u0348t\u036E\u0357\u031C\u0320\u033C\u034D\u0329\u0353r\u0310\u036C\u0337\u033B\u0318a\u036E\u033Cp\u0343\u0304\u034C\u036C\u0346\u032A\u0325\u0354\u032B\u0324r\u0351\u036F\u0303\u0310\u032E\u034D\u0318"
---- !u!222 &237636171
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 237636168}
 --- !u!1 &269301242
 GameObject:
   m_ObjectHideFlags: 0
@@ -1365,7 +1267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e246da40d2f9d4db0e5d26ae20c98f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doc1: {fileID: 237636170}
+  doc1: {fileID: 4900000, guid: 9f684cfd73392f84a9c4b6956a5d8d1d, type: 3}
 --- !u!1 &1178373824 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1712784925814542, guid: fc99494158efe2f4ca27dc069069ea9f,
@@ -1547,40 +1449,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1712784925814542, guid: fc99494158efe2f4ca27dc069069ea9f,
     type: 2}
   m_PrefabInternal: {fileID: 232662155}
---- !u!1 &1662060004
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1662060005}
-  m_Layer: 5
-  m_Name: HiddenTextEntries
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1662060005
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1662060004}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 237636169}
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 568.6067, y: 296.44504}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1711821749
 Prefab:
   m_ObjectHideFlags: 0

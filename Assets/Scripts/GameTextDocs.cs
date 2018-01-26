@@ -5,10 +5,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class GameTextDocs : MonoBehaviour {
-    public Text doc1;
-    private List<string> _docNames = new List<string>(new string[] { "UnityMadeMe.txt", "LilImage.png" });
+    public TextAsset doc1;
 
-    private List<Text> _docTexts = new List<Text>();
+    private List<TextAsset> _docTexts = new List<TextAsset>();
 
     public void Initialise()
     {
@@ -19,11 +18,11 @@ public class GameTextDocs : MonoBehaviour {
     {
         //Debug.Log(_docTexts[0].text);
 
-        if (File.Exists(_docNames[num]))
+        if (File.Exists(_docTexts[num].name + ".txt")) //Because we manually need to set the document extension
         {
-            Debug.Log(_docNames[num] + " already exists.");
+            Debug.Log(_docTexts[num].name + ".txt" + " already exists.");
             return;
         }
-        File.WriteAllText(_docNames[num], _docTexts[num].text);
+        File.WriteAllText(_docTexts[num].name + ".txt", _docTexts[num].text);
     }
 }

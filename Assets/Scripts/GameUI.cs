@@ -39,5 +39,6 @@ public class GameUI : MonoBehaviour {
         }
 
         Debug.Log(gameLogic.IsCorrect(answers));
+        gameLogic.FakeCrash();
     }
 }
