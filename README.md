@@ -1,2 +1,2 @@
-# GGJ17
-Global Game Jam 2017 Game
+# GGJ18
+Global Game Jam 2018 Game
