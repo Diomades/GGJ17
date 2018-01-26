@@ -7,10 +7,13 @@ public class GameLogic : MonoBehaviour {
     private List<bool> curSolutions = new List<bool>();
 
     public GameLevels gameLevels;
+    public GameTextDocs gameTextDocs;
 
     void Start()
     {
         gameLevels.Initialise();
+        gameTextDocs.Initialise();
+        gameTextDocs.OutputDocument(curLevel);
 
         curSolutions = gameLevels.CurrentStage(curLevel);
         /*foreach(bool b in curSolutions)
