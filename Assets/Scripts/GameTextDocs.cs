@@ -6,8 +6,11 @@ using UnityEngine.UI;
 
 public class GameTextDocs : MonoBehaviour {
     public TextAsset doc1;
-
+    public TextAsset doc2;
+    public TextAsset doc3;
+    public TextAsset doc4;
     private List<TextAsset> _docTexts = new List<TextAsset>();
+    private List<string> _docTextLocations = new List<string>();
 
     public void Initialise()
     {

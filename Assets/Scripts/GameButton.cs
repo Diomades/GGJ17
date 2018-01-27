@@ -24,4 +24,14 @@ public class GameButton : MonoBehaviour {
     {
         thisButtonBG.GetComponent<Image>().sprite = img;
     }
+
+    public void DisableButton()
+    {
+        thisButton.interactable = false;
+    }
+
+    public void EnableButton()
+    {
+        thisButton.interactable = true;
+    }
 }

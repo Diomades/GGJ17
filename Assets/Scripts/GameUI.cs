@@ -79,5 +79,14 @@ public class GameUI : MonoBehaviour {
         }
 
         gameLogic.CheckAnswers(answers);
+        DisableGameplay();
+    }
+
+    public void DisableGameplay()
+    {
+        foreach(GameButton btn in _gameButtons)
+        {
+            btn.DisableButton();
+        }
     }
 }
