@@ -13,7 +13,7 @@ public class GameLogic : MonoBehaviour {
     public int totalPuzzles;
     private List<bool> _curSolutions = new List<bool>();
 
-    void Start()
+    public void Initialise()
     {
         //Get everything set up
         gameLevels.Initialise();

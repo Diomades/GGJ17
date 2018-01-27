@@ -21,6 +21,17 @@ public class GameUI : MonoBehaviour {
     public GameObject btn9;
     public Text promptText;
 
+    [Header("HUD Elements")]
+    public Text logoText;
+    public Text creditsText;
+    public Text submitButton;
+    public Text puzzleNumber;
+    public Text timeNumber;
+    public bool timerStart = false;
+    private float _secondsCount;
+    private int _minutesCount;
+    private int _hoursCount;
+
     [Header("Robot UI")]
     public GameObject robotUI;
     public Text robotText;
@@ -59,6 +70,14 @@ public class GameUI : MonoBehaviour {
         }*/
     }
 
+    private void Update()
+    {
+        if (timerStart)
+        {
+            UpdateTimer();
+        }
+    }
+
     public void UpdateButtons(int level)
     {
         List<Sprite> images = gameLevels.CurrentStageImages(level); //Store the current set of images
@@ -90,7 +109,60 @@ public class GameUI : MonoBehaviour {
         promptText.text = gameLevels.CurrentStagePrompt(level);
     }
 
-	public void TestResults()
+    public void UpdateHUD(string logo, string credits, string submit, string puzzleNum, string timeNum)
+    {
+        if(logo != "")
+        {
+            logoText.text = logo;
+        }
+        if (credits != "")
+        {
+            creditsText.text = credits;
+        }
+        if (submit != "")
+        {
+            submitButton.text = submit;
+        }
+        if (logo != "")
+        {
+            logoText.text = logo;
+        }
+    }
+
+    //We leave UpdatePuzzleNumber as a string so we can override it easily, manually
+    public void UpdatePuzzleNumber(string num)
+    {
+        puzzleNumber.text = num + " / 10";
+    }
+
+    public void StartTimer()
+    {
+        timerStart = true;
+    }
+
+    public void StopTimer()
+    {
+        timerStart = false;
+    }
+
+    //Update the timer automatically
+    public void UpdateTimer()
+    {
+        _secondsCount += Time.deltaTime;
+        if (_secondsCount >= 60)
+        {
+            _minutesCount++;
+            _secondsCount = 0;
+        }
+        else if (_minutesCount >= 60)
+        {
+            _hoursCount++;
+            _minutesCount = 0;
+        }
+        timeNumber.text = _hoursCount + ":" + _minutesCount + ":" + _secondsCount;
+    }
+
+    public void TestResults()
     {
         List<bool> answers = new List<bool>(); //Create a temp list with our answers
         foreach(GameButton b in _gameButtons)
