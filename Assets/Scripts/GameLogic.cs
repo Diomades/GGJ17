@@ -38,17 +38,23 @@ public class GameLogic : MonoBehaviour {
         _curSolutions = gameLevels.CurrentStageAnswers(curLevel);
     }
 
-    public bool IsCorrect(List<bool> c) //Tests *c*hoices against solutions
+    public bool CheckAnswers(List<bool> c) //Tests *c*hoices against solutions
     {
         for(int i = 0; i < _curSolutions.Count; i++)
         {
             if (_curSolutions[i] != c[i])
             {
+                //The answers are wrong. Notify the player.
+                Debug.Log("The selected answers were INCORRECT");
+                gameUI.Incorrect();
                 return false;
             }
         }
 
-        return true; //At this point we've checked both lists and can confirm it's correct
+        //At this point we've checked both lists and can confirm it's correct
+        Debug.Log("The selected answers were CORRECT");
+        NextStage();
+        return true;
     }
 
     public void FakeCrash()

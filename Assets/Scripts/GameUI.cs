@@ -51,6 +51,20 @@ public class GameUI : MonoBehaviour {
         }
     }
 
+    //Run to indicate answers were wrong
+    public void Incorrect()
+    {
+        ClearButtons();
+    }
+
+    public void ClearButtons()
+    {
+        foreach(GameButton btn in _gameButtons)
+        {
+            btn.ClearStatus();
+        }
+    }
+
     public void UpdatePrompt(int level)
     {
         promptText.text = gameLevels.CurrentStagePrompt(level);
@@ -64,7 +78,6 @@ public class GameUI : MonoBehaviour {
             answers.Add(b.isActive);
         }
 
-        Debug.Log("The selected answers are " + gameLogic.IsCorrect(answers));
-        //gameLogic.IsCorrect(answers);
+        gameLogic.CheckAnswers(answers);
     }
 }

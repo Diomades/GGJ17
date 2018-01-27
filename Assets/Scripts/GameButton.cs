@@ -10,27 +10,18 @@ public class GameButton : MonoBehaviour {
 
     public void OnClick()
     {
-        if (!isActive)
-        {
-            isActive = true;
-        }
-        else
-        {
-            isActive = false;
-        }
-
-        Debug.Log(isActive);
+        isActive = thisButton.isOn;
+        Debug.Log(this.name + " is now " + isActive);
     }
 
     public void ClearStatus()
     {
+        thisButton.isOn = false;
         isActive = false;
     }
 
     public void UpdateSprite(Sprite img)
     {
-        Debug.Log(thisButtonBG);
         thisButtonBG.GetComponent<Image>().sprite = img;
-        Debug.Log(thisButtonBG);
     }
 }
