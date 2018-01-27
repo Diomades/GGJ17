@@ -29,6 +29,7 @@ public class GameUI : MonoBehaviour {
     public Text creditsText;
     public Text submitButton;
     public Text puzzleNumber;
+    private string _puzzleOutOf = " / 10";
     public Text timeNumber;
     public bool timerStart = false;
     private float _secondsCount;
@@ -132,20 +133,17 @@ public class GameUI : MonoBehaviour {
         {
             submitButton.text = submit;
         }
-        if (logo != "")
+        if (puzzleNum != "")
         {
-            logoText.text = logo;
+            _puzzleOutOf = puzzleNum;
         }
     }
 
     //We leave UpdatePuzzleNumber as a string so we can override it easily, manually
     public void UpdatePuzzleNumber(int num)
     {
-        if (num < 100)
-        {
-            num++; //We add 1 to num to reflect the actual level before we glitch this out
-        }
-        puzzleNumber.text = num + " / 10";
+        num++;
+        puzzleNumber.text = num + _puzzleOutOf;
     }
 
     public void StartTimer()

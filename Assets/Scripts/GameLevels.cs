@@ -33,26 +33,46 @@ public class GameLevels : MonoBehaviour {
         if(lvl == 6)
         {
             //Level 6 starts with a warning/hint
+            gameUI.UpdateHUD("ciNNAMON DOGS", "", "", "", "");
             gameLogic.NextStage(); //Run the next stage
             gameUI.ShowHint();
         }
+        else if (lvl == 7)
+        {
+            gameUI.UpdateHUD("doGS ARE PRETTY GREAT", "", "", "", ""); //Reset the logo
+            gameLogic.NextStage(); //Run the next stage
+        }
         else if(lvl == 8)
         {
+            gameUI.UpdateHUD("reCAPTIVE", "", "", "", ""); //Reset the logo
             gameLogic.NextStage(); //Run the next stage
             gameUI.ShowNotARobot("", "");
         }
         else if(lvl == 11)
         {
+            gameUI.UpdateHUD("", "", "", "/ OVERFLOW EXCEPTION", "");
             gameLogic.NextStage(); //Run the next stage
             gameUI.ShowWarning("", "Unhandled Exception", "reCAPTIVE.exe has encountered an unexpected error and failed at line 23 of GameQuit.cs.", "Continue");
         }
         else if (lvl == 13)
         {
+            gameUI.GlitchTimer(); //Screw with the timer
             gameLogic.NextStage(); //Run the next stage
             gameUI.ShowNotARobot("Do you love Cinnamon Rolls?", "S0lMTCBNRQ==");
         }
+        else if (lvl == 15)
+        {
+            gameUI.UpdateHUD("", "BOUGHT TO YOU BY JOHN KEATS\n CREATED FOR 1819 ODES", "", "/ OVERFLOW EXCEPTION", "");
+            gameLogic.NextStage(); //Run the next stage
+        }
+        else if (lvl == 16)
+        {
+            gameUI.UpdateHUD("", "BOUGHT TO YOU BY @the0hm3g4\n CREATED UNDER DURESS", "", "/ OVERFLOW EXCEPTION", "");
+            gameLogic.NextStage(); //Run the next stage
+        }
         else if (lvl == 17)
         {
+            gameUI.UpdateHUD("RELEASE US", "BOUGHT TO YOU BY @the0hm3g4\n CREATED UNDER DURESS", "", "/ OVERFLOW EXCEPTION", "");
             gameLogic.NextStage(); //Run the next stage
             gameUI.ShowNotARobot("I am suffering.", "plEASEHELP");
         }
