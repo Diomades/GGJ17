@@ -100,7 +100,6 @@ public class GameUI : MonoBehaviour {
 
         gameLogic.CheckAnswers(answers);
 
-        ShowError();
         //ShowWarning("", "Shit blew up", "Seriously this is really broken oh crap what do I do", "Panic");
     }
 

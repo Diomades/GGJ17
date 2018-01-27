@@ -8,8 +8,9 @@ public class GameLogic : MonoBehaviour {
     public GameTextDocs gameTextDocs;
     public GameSceneLoad gameSceneLoad;
 
-    public int curLevel = 0;
-    public int totalLevels;
+    public int curStage = 0;
+    public int curPuzzle = 0;
+    public int totalPuzzles;
     private List<bool> _curSolutions = new List<bool>();
 
     void Start()
@@ -18,33 +19,39 @@ public class GameLogic : MonoBehaviour {
         gameLevels.Initialise();
 
         gameUI.Initialise();
-        gameUI.UpdateButtons(curLevel);
-        gameUI.UpdatePrompt(curLevel);
+        gameUI.UpdateButtons(curPuzzle);
+        gameUI.UpdatePrompt(curPuzzle);
 
         gameTextDocs.Initialise();
-        gameTextDocs.OutputDocument(curLevel);
+        gameTextDocs.OutputDocument(curPuzzle);
 
-        _curSolutions = gameLevels.CurrentStageAnswers(curLevel);
+        _curSolutions = gameLevels.CurrentStageAnswers(curPuzzle);
     }
 
     public void NextStage()
     {
         //Advance to the next level
-        curLevel++;
+        curPuzzle++;
         //Check if we are on the final level of the game
-        if (curLevel == totalLevels)
+        if (curPuzzle == totalPuzzles)
         {
             gameSceneLoad.LoadScene("EndScene");
         }
         else
         {
             //Update the buttons appropriately
-            gameUI.UpdateButtons(curLevel);
-            gameUI.UpdatePrompt(curLevel);
+            gameUI.UpdateButtons(curPuzzle);
+            gameUI.UpdatePrompt(curPuzzle);
 
             //Update the solutions
-            _curSolutions = gameLevels.CurrentStageAnswers(curLevel);
+            _curSolutions = gameLevels.CurrentStageAnswers(curPuzzle);
         }        
+    }
+
+    //Check to see if there's an event on this puzzle
+    public void CheckPuzzleEvent()
+    {
+
     }
 
     public bool CheckAnswers(List<bool> c) //Tests *c*hoices against solutions
