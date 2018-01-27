@@ -8,10 +8,11 @@ public class GameLogic : MonoBehaviour {
     public GameTextDocs gameTextDocs;
     public GameSceneLoad gameSceneLoad;
 
-    public int curStage = 0;
     public int curPuzzle = 0;
-    public int totalPuzzles;
     private List<bool> _curSolutions = new List<bool>();
+
+    private int _timesIncorrect = 0;
+    private int _hintThreshold = 3; //The time before we drop a 'hint'
 
     public void Initialise()
     {
@@ -21,6 +22,7 @@ public class GameLogic : MonoBehaviour {
         gameUI.Initialise();
         gameUI.UpdateButtons(curPuzzle);
         gameUI.UpdatePrompt(curPuzzle);
+        gameUI.UpdatePuzzleNumber(curPuzzle);
 
         gameTextDocs.Initialise();
         gameTextDocs.OutputDocument(curPuzzle);
@@ -32,24 +34,17 @@ public class GameLogic : MonoBehaviour {
     {
         //Advance to the next level
         curPuzzle++;
-        //Check if we are on the final level of the game
-        if (curPuzzle == totalPuzzles)
-        {
-            gameSceneLoad.LoadScene("EndScene");
-        }
-        else
-        {
-            //Update the buttons appropriately
-            gameUI.UpdateButtons(curPuzzle);
-            gameUI.UpdatePrompt(curPuzzle);
+        //Update the buttons appropriately
+        gameUI.UpdateButtons(curPuzzle);
+        gameUI.UpdatePrompt(curPuzzle);
+        gameUI.UpdatePuzzleNumber(curPuzzle);
 
-            //Update the solutions
-            _curSolutions = gameLevels.CurrentStageAnswers(curPuzzle);
-        }        
+        //Update the solutions
+        _curSolutions = gameLevels.CurrentStageAnswers(curPuzzle);      
     }
 
-    //Check to see if there's an event on this puzzle
-    public void CheckPuzzleEvent()
+    //When we get to the final sections of the game (Level 18 + 19), we stop using NextStage and use NextFinaleEvent instead
+    public void NextFinaleEvent()
     {
 
     }
@@ -62,14 +57,25 @@ public class GameLogic : MonoBehaviour {
             {
                 //The answers are wrong. Notify the player.
                 Debug.Log("The selected answers were INCORRECT");
-                gameUI.Incorrect();
+                _timesIncorrect++;
+                if (_timesIncorrect == _hintThreshold)
+                {
+                    gameUI.ShowIncorrect(true);
+                    _timesIncorrect = 0;
+                }
+                else
+                {
+                    gameUI.ShowIncorrect(false);
+                }
                 return false;
             }
         }
 
         //At this point we've checked both lists and can confirm it's correct
         Debug.Log("The selected answers were CORRECT");
-        NextStage();
+        _timesIncorrect = 0; //Reset times incorrect if we need to
+        //Trigger GameLevels to check if we need to do anything special for the next level
+        gameLevels.CheckScene(curPuzzle);
         return true;
     }
 

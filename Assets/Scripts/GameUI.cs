@@ -9,6 +9,8 @@ public class GameUI : MonoBehaviour {
 
     private List<GameButton> _gameButtons = new List<GameButton>();
 
+    private bool _needHint = false;
+
     [Header("Gameplay UI")]
     public GameObject btn1;
     public GameObject btn2;
@@ -22,6 +24,7 @@ public class GameUI : MonoBehaviour {
     public Text promptText;
 
     [Header("HUD Elements")]
+    public GameObject incorrectPopUp;
     public Text logoText;
     public Text creditsText;
     public Text submitButton;
@@ -34,6 +37,7 @@ public class GameUI : MonoBehaviour {
 
     [Header("Robot UI")]
     public GameObject robotUI;
+    public Toggle robotToggle;
     public Text robotText;
     public Text robotLogo;
 
@@ -63,11 +67,7 @@ public class GameUI : MonoBehaviour {
         _gameButtons.Add(btn8.GetComponent<GameButton>());
         _gameButtons.Add(btn9.GetComponent<GameButton>());
 
-        //make sure the buttons are ready to go
-        /*foreach(GameButton btn in _gameButtons)
-        {
-            btn.Initialise();
-        }*/
+        timerStart = true; //Start the Timer
     }
 
     private void Update()
@@ -91,9 +91,18 @@ public class GameUI : MonoBehaviour {
     }
 
     //Run to indicate answers were wrong
-    public void Incorrect()
+    public void ShowIncorrect(bool hint)
     {
+        _needHint = hint; //Displays a hint after the display of the Incorrect Pop-Up if necessary
+        incorrectPopUp.SetActive(true);
         ClearButtons();
+        DisableGameplay();
+        StartCoroutine(WaitForUI(3.0f));
+    }
+
+    public void ShowHint()
+    {
+        ShowWarning("", "Unusual Behavior", "Sometimes reCAPTIVE mixes up images. Check the README file in the game folder if you run into any issues!", "");
     }
 
     public void ClearButtons()
@@ -130,8 +139,12 @@ public class GameUI : MonoBehaviour {
     }
 
     //We leave UpdatePuzzleNumber as a string so we can override it easily, manually
-    public void UpdatePuzzleNumber(string num)
+    public void UpdatePuzzleNumber(int num)
     {
+        if (num < 100)
+        {
+            num++; //We add 1 to num to reflect the actual level before we glitch this out
+        }
         puzzleNumber.text = num + " / 10";
     }
 
@@ -148,7 +161,13 @@ public class GameUI : MonoBehaviour {
     //Update the timer automatically
     public void UpdateTimer()
     {
+        //For displaying 0's in a slot ahead of the digit
+        string fsec = "";
+        string fmin = "";
+        string fhrs = "";
+
         _secondsCount += Time.deltaTime;
+        float dt = Mathf.Round(_secondsCount);
         if (_secondsCount >= 60)
         {
             _minutesCount++;
@@ -159,7 +178,31 @@ public class GameUI : MonoBehaviour {
             _hoursCount++;
             _minutesCount = 0;
         }
-        timeNumber.text = _hoursCount + ":" + _minutesCount + ":" + _secondsCount;
+
+        //Check seconds for fsec
+        if (dt < 10)
+        {
+            fsec = "0";
+        }
+
+        //Check minutes for fmin
+        if (_minutesCount < 10)
+        {
+            fmin = "0";
+        }
+
+        //Check minutes for fmin
+        if (_hoursCount < 10)
+        {
+            fhrs = "0";
+        }
+
+        timeNumber.text = fhrs + _hoursCount + ":" + fmin + _minutesCount + ":" + fsec+ dt;
+    }
+
+    public void GlitchTimer()
+    {
+        _hoursCount += 999999999;
     }
 
     public void TestResults()
@@ -194,7 +237,9 @@ public class GameUI : MonoBehaviour {
         DisableGameplay();
 
         //Then, we reactivate this UI
-        robotUI.SetActive(true);
+        robotUI.SetActive(true);        
+        robotToggle.interactable = true; //Re-enable and set inactive the robot toggle
+        robotToggle.isOn = false;
     }
 
     public void ShowWarning(string exe, string title, string error, string button)
@@ -249,6 +294,7 @@ public class GameUI : MonoBehaviour {
 
     public void CloseMiscUISlowly()
     {
+        robotToggle.interactable = false; //Just in case the RobotToggle was responsible for this
         StartCoroutine(WaitForUI(3.0f));
     }
 
@@ -257,12 +303,20 @@ public class GameUI : MonoBehaviour {
         yield return new WaitForSeconds(t);
 
         //Disable the appropriate UI's again
+        incorrectPopUp.SetActive(false);
         robotUI.SetActive(false);
         warningUI.SetActive(false);
-        errorUI.SetActive(false);
+        errorUI.SetActive(false);        
 
         //Enable gameplay once more
         EnableGameplay();
+
+        //Show a hint if necessary
+        if (_needHint)
+        {
+            _needHint = false;
+            ShowHint();
+        }
     }
 
     public void DisableGameplay()

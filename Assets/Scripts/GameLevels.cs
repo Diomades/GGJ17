@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameLevels : MonoBehaviour {
     public GameObject gameStages;
+    public GameUI gameUI;
+    public GameLogic gameLogic;
 
     private List<List<bool>> _stages = new List<List<bool>>();
     private List<List<Sprite>> _images = new List<List<Sprite>>();
@@ -20,6 +22,52 @@ public class GameLevels : MonoBehaviour {
             _stages.Add(s.StageAnswers);
             _images.Add(s.StageImages);
             _prompts.Add(s.prompt);
+        }
+    }
+
+    public void CheckScene(int s)
+    {
+        //Our current level is 1 less than what is currently displayed (because it starts at 0 while the UI displays 1). So to figure out what happens next level, we need to add 2
+        int lvl = s + 2; //We want to check what the next level does
+
+        if(lvl == 6)
+        {
+            //Level 6 starts with a warning/hint
+            gameLogic.NextStage(); //Run the next stage
+            gameUI.ShowHint();
+        }
+        else if(lvl == 8)
+        {
+            gameLogic.NextStage(); //Run the next stage
+            gameUI.ShowNotARobot("", "");
+        }
+        else if(lvl == 11)
+        {
+            gameLogic.NextStage(); //Run the next stage
+            gameUI.ShowWarning("", "Unhandled Exception", "reCAPTIVE.exe has encountered an unexpected error and failed at line 23 of GameQuit.cs.", "Continue");
+        }
+        else if (lvl == 13)
+        {
+            gameLogic.NextStage(); //Run the next stage
+            gameUI.ShowNotARobot("Do you love Cinnamon Rolls?", "S0lMTCBNRQ==");
+        }
+        else if (lvl == 17)
+        {
+            gameLogic.NextStage(); //Run the next stage
+            gameUI.ShowNotARobot("I am suffering.", "plEASEHELP");
+        }
+        else if (lvl == 18)
+        {
+            //Login window pop-up
+        }
+        else if (lvl == 19)
+        {
+            gameUI.ShowError(); //Show the final choice
+        }
+        else
+        {
+            //This isn't an important level for an event
+            gameLogic.NextStage(); //Run the next stage
         }
     }
 

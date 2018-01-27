@@ -16,7 +16,7 @@ public class GameMenu : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        menuCanvas.SetActive(true);
+        //menuCanvas.SetActive(true);
         gameCanvas.SetActive(false);
         gameMenu.SetActive(true);
         menuRobotUI.SetActive(true);
@@ -36,7 +36,7 @@ public class GameMenu : MonoBehaviour {
         gameCanvas.SetActive(true);
         gameMenu.SetActive(false);
         menuRobotUI.SetActive(false);
-        menuCanvas.SetActive(false);
+        //menuCanvas.SetActive(false);
 
         //Start the game
         gameLogic.Initialise();
