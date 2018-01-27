@@ -3,19 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameLogic : MonoBehaviour {
-    public int curLevel = 0;
-    private List<bool> curSolutions = new List<bool>();
-
     public GameLevels gameLevels;
+    public GameUI gameUI;
     public GameTextDocs gameTextDocs;
+
+    public int curLevel = 0;
+    private List<bool> _curSolutions = new List<bool>();
 
     void Start()
     {
         gameLevels.Initialise();
+        gameUI.Initialise();
         gameTextDocs.Initialise();
         gameTextDocs.OutputDocument(curLevel);
 
-        curSolutions = gameLevels.CurrentStage(curLevel);
+        _curSolutions = gameLevels.CurrentStageAnswers(curLevel);
         /*foreach(bool b in curSolutions)
         {
             Debug.Log(b);
@@ -24,9 +26,9 @@ public class GameLogic : MonoBehaviour {
 
     public bool IsCorrect(List<bool> c) //Tests *c*hoices against solutions
     {
-        for(int i = 0; i < curSolutions.Count; i++)
+        for(int i = 0; i < _curSolutions.Count; i++)
         {
-            if (curSolutions[i] != c[i])
+            if (_curSolutions[i] != c[i])
             {
                 return false;
             }
