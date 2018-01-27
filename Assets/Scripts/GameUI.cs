@@ -32,24 +32,28 @@ public class GameUI : MonoBehaviour {
         _gameButtons.Add(btn8.GetComponent<GameButton>());
         _gameButtons.Add(btn9.GetComponent<GameButton>());
 
-        UpdateButtons();
-        UpdatePrompt();
+        //make sure the buttons are ready to go
+        /*foreach(GameButton btn in _gameButtons)
+        {
+            btn.Initialise();
+        }*/
     }
 
-    public void UpdateButtons()
+    public void UpdateButtons(int level)
     {
-        List<Sprite> images = gameLevels.CurrentStageImages(gameLogic.curLevel); //Store the current set of images
+        List<Sprite> images = gameLevels.CurrentStageImages(level); //Store the current set of images
 
         for(int i = 0; i < _gameButtons.Count; i++)
         {
             Debug.Log("Updating " + _gameButtons[i] + " with " + images[i]);
-            _gameButtons[i].UpdateSprite(images[i]);
+            _gameButtons[i].UpdateSprite(images[i]); //Update the button image
+            _gameButtons[i].ClearStatus(); //Make the button ready for clicking
         }
     }
 
-    public void UpdatePrompt()
+    public void UpdatePrompt(int level)
     {
-        promptText.text = gameLevels.CurrentStagePrompt(gameLogic.curLevel);
+        promptText.text = gameLevels.CurrentStagePrompt(level);
     }
 
 	public void TestResults()
@@ -60,7 +64,7 @@ public class GameUI : MonoBehaviour {
             answers.Add(b.isActive);
         }
 
-        Debug.Log(gameLogic.IsCorrect(answers));
-        //gameLogic.FakeCrash();
+        Debug.Log("The selected answers are " + gameLogic.IsCorrect(answers));
+        //gameLogic.IsCorrect(answers);
     }
 }

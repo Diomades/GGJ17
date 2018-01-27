@@ -12,16 +12,30 @@ public class GameLogic : MonoBehaviour {
 
     void Start()
     {
+        //Get everything set up
         gameLevels.Initialise();
+
         gameUI.Initialise();
+        gameUI.UpdateButtons(curLevel);
+        gameUI.UpdatePrompt(curLevel);
+
         gameTextDocs.Initialise();
         gameTextDocs.OutputDocument(curLevel);
 
         _curSolutions = gameLevels.CurrentStageAnswers(curLevel);
-        /*foreach(bool b in curSolutions)
-        {
-            Debug.Log(b);
-        }*/
+    }
+
+    public void NextStage()
+    {
+        //Advance to the next level
+        curLevel++;
+
+        //Update the buttons appropriately
+        gameUI.UpdateButtons(curLevel);
+        gameUI.UpdatePrompt(curLevel);
+
+        //Update the solutions
+        _curSolutions = gameLevels.CurrentStageAnswers(curLevel);
     }
 
     public bool IsCorrect(List<bool> c) //Tests *c*hoices against solutions

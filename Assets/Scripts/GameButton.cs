@@ -4,13 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class GameButton : MonoBehaviour {
-    public string buttonID;
+    public Toggle thisButton;
+    public GameObject thisButtonBG;
     public bool isActive = false;
-
-	// Use this for initialization
-	void Start () {
-        buttonID = this.name;
-	}
 
     public void OnClick()
     {
@@ -26,8 +22,15 @@ public class GameButton : MonoBehaviour {
         Debug.Log(isActive);
     }
 
+    public void ClearStatus()
+    {
+        isActive = false;
+    }
+
     public void UpdateSprite(Sprite img)
     {
-        this.GetComponent<Button>().image.sprite = img;
+        Debug.Log(thisButtonBG);
+        thisButtonBG.GetComponent<Image>().sprite = img;
+        Debug.Log(thisButtonBG);
     }
 }
