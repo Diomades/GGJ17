@@ -6,8 +6,10 @@ public class GameLogic : MonoBehaviour {
     public GameLevels gameLevels;
     public GameUI gameUI;
     public GameTextDocs gameTextDocs;
+    public GameSceneLoad gameSceneLoad;
 
     public int curLevel = 0;
+    public int totalLevels;
     private List<bool> _curSolutions = new List<bool>();
 
     void Start()
@@ -29,13 +31,20 @@ public class GameLogic : MonoBehaviour {
     {
         //Advance to the next level
         curLevel++;
+        //Check if we are on the final level of the game
+        if (curLevel == totalLevels)
+        {
+            gameSceneLoad.LoadScene("EndScene");
+        }
+        else
+        {
+            //Update the buttons appropriately
+            gameUI.UpdateButtons(curLevel);
+            gameUI.UpdatePrompt(curLevel);
 
-        //Update the buttons appropriately
-        gameUI.UpdateButtons(curLevel);
-        gameUI.UpdatePrompt(curLevel);
-
-        //Update the solutions
-        _curSolutions = gameLevels.CurrentStageAnswers(curLevel);
+            //Update the solutions
+            _curSolutions = gameLevels.CurrentStageAnswers(curLevel);
+        }        
     }
 
     public bool CheckAnswers(List<bool> c) //Tests *c*hoices against solutions

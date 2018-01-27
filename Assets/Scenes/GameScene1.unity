@@ -1188,6 +1188,7 @@ GameObject:
   - component: {fileID: 1110612727}
   - component: {fileID: 1110612729}
   - component: {fileID: 1110612731}
+  - component: {fileID: 1110612732}
   m_Layer: 0
   m_Name: GameCode
   m_TagString: Untagged
@@ -1257,7 +1258,9 @@ MonoBehaviour:
   gameLevels: {fileID: 1110612727}
   gameUI: {fileID: 1110612729}
   gameTextDocs: {fileID: 1110612731}
+  gameSceneLoad: {fileID: 1110612732}
   curLevel: 0
+  totalLevels: 2
 --- !u!114 &1110612731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1270,6 +1273,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doc1: {fileID: 4900000, guid: 9f684cfd73392f84a9c4b6956a5d8d1d, type: 3}
+--- !u!114 &1110612732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1110612726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf4cd24ed90f4ef4d9c792f83f32a612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1178373824 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1712784925814542, guid: fc99494158efe2f4ca27dc069069ea9f,
@@ -1963,7 +1977,7 @@ GameObject:
   - component: {fileID: 1943620785}
   - component: {fileID: 1943620784}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: GameCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
