@@ -8,6 +8,8 @@ public class GameUI : MonoBehaviour {
     public GameLevels gameLevels; //Storing a contactable version of GameLevels
 
     private List<GameButton> _gameButtons = new List<GameButton>();
+
+    [Header("Gameplay UI")]
     public GameObject btn1;
     public GameObject btn2;
     public GameObject btn3;
@@ -17,8 +19,26 @@ public class GameUI : MonoBehaviour {
     public GameObject btn7;
     public GameObject btn8;
     public GameObject btn9;
-
     public Text promptText;
+
+    [Header("Robot UI")]
+    public GameObject robotUI;
+    public Text robotText;
+    public Text robotLogo;
+
+    [Header("Warning UI")]
+    public GameObject warningUI;
+    public Text warningEXE;
+    public Text warningTitle;
+    public Text warningText;
+    public Text warningButton;
+
+    [Header("Error UI")]
+    public GameObject errorUI;
+    public Text errorTitle;
+    public Text errorText;
+    public Text errorButton1;
+    public Text errorButton2;
 
     // Use this for initialization
     public void Initialise() {
@@ -79,7 +99,99 @@ public class GameUI : MonoBehaviour {
         }
 
         gameLogic.CheckAnswers(answers);
+
+        ShowError();
+        //ShowWarning("", "Shit blew up", "Seriously this is really broken oh crap what do I do", "Panic");
+    }
+
+    public void ShowNotARobot(string prompt, string logo)
+    {
+        if (logo == "")
+        {
+            logo = "reCAPTIVE";
+        }
+        if (prompt == "")
+        {
+            prompt = "I'm not a robot";
+        }
+
+        //Update all the text first
+        robotText.text = prompt;
+        robotLogo.text = logo;
+
+        //Disable the gameplay so it doesn't interrupt this UI
         DisableGameplay();
+
+        //Then, we reactivate this UI
+        robotUI.SetActive(true);
+    }
+
+    public void ShowWarning(string exe, string title, string error, string button)
+    {
+        if(exe == "")
+        {
+            exe = "reCAPTIVE.exe";
+        }
+        if (button == "")
+        {
+            button = "OK";
+        }
+        if(title == "" || error == "")
+        {
+            Debug.Log("ERROR: TITLE OR ERROR FIELD NOT FILLED FOR WARNING POP-UP");
+        }
+        else
+        {
+            warningEXE.text = exe;
+            warningTitle.text = title;
+            warningText.text = error;
+            warningButton.text = button;
+
+            DisableGameplay();
+
+            warningUI.SetActive(true);
+        }
+    }
+
+    public void ShowError()
+    {
+        errorTitle.text = "User Permissions Request";
+        errorText.text = "reCAPTIVE.exe is requesting user permissions to delete a file (unity_omega_ai). This action cannot be reversed.";
+        errorButton1.text = "Confirm";
+        errorButton2.text = "Cancel";
+
+        DisableGameplay();
+
+        errorUI.SetActive(true);
+    }
+
+    public void CloseMiscUI()
+    {
+        //Disable the appropriate UI's again
+        robotUI.SetActive(false);
+        warningUI.SetActive(false);
+        errorUI.SetActive(false);
+
+        //Enable gameplay once more
+        EnableGameplay();
+    }
+
+    public void CloseMiscUISlowly()
+    {
+        StartCoroutine(WaitForUI(3.0f));
+    }
+
+    public IEnumerator WaitForUI(float t)
+    {
+        yield return new WaitForSeconds(t);
+
+        //Disable the appropriate UI's again
+        robotUI.SetActive(false);
+        warningUI.SetActive(false);
+        errorUI.SetActive(false);
+
+        //Enable gameplay once more
+        EnableGameplay();
     }
 
     public void DisableGameplay()
@@ -87,6 +199,14 @@ public class GameUI : MonoBehaviour {
         foreach(GameButton btn in _gameButtons)
         {
             btn.DisableButton();
+        }
+    }
+
+    public void EnableGameplay()
+    {
+        foreach (GameButton btn in _gameButtons)
+        {
+            btn.EnableButton();
         }
     }
 }

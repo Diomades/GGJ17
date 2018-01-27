@@ -11,11 +11,12 @@ public class GameButton : MonoBehaviour {
     public void OnClick()
     {
         isActive = thisButton.isOn;
-        Debug.Log(this.name + " is now " + isActive);
+        Debug.Log(this.name + " is now " + isActive);   
     }
 
     public void ClearStatus()
     {
+        thisButton.enabled = true;
         thisButton.isOn = false;
         isActive = false;
     }
@@ -27,11 +28,11 @@ public class GameButton : MonoBehaviour {
 
     public void DisableButton()
     {
-        thisButton.interactable = false;
+        thisButton.enabled = false;
     }
 
     public void EnableButton()
     {
-        thisButton.interactable = true;
+        thisButton.enabled = true;
     }
 }

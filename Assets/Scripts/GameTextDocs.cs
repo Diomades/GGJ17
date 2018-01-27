@@ -10,7 +10,6 @@ public class GameTextDocs : MonoBehaviour {
     public TextAsset doc3;
     public TextAsset doc4;
     private List<TextAsset> _docTexts = new List<TextAsset>();
-    private List<string> _docTextLocations = new List<string>();
 
     public void Initialise()
     {
