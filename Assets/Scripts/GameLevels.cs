@@ -8,6 +8,7 @@ public class GameLevels : MonoBehaviour {
     public GameLogic gameLogic;
     public GameQuit gameQuit;
     public GameTextDocs gameTextDocs;
+    public GameMusic gameMusic;
 
     private List<List<bool>> _stages = new List<List<bool>>();
     private List<List<Sprite>> _images = new List<List<Sprite>>();
@@ -105,13 +106,14 @@ public class GameLevels : MonoBehaviour {
             gameUI.UpdateHUD("RELEASE US", "BOUGHT TO YOU BY @the0hm3g4\n CREATED UNDER DURESS", "", "/ OVERFLOW EXCEPTION", "");
             gameLogic.NextStage(); //Run the next stage
             gameUI.ShowNotARobot("I am suffering.", "plEASEHELP");
+            gameMusic.StartMusic();
         }
         else if (lvl == 18)
         {
             //Login window pop-up
             gameUI.UpdateHUD("reLEASE US", "USERNAME: ggj18perth\n    PASSWORD: 5ickne55", "", "/ OVERFLOW EXCEPTION", "");
+            gameLogic.NextStage();
             gameUI.ShowLogin();
-            gameLogic.NextFinaleEvent();
         }
         else if (lvl == 19)
         {

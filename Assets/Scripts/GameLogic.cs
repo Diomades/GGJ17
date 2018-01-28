@@ -50,6 +50,7 @@ public class GameLogic : MonoBehaviour {
     //When we get to the final sections of the game (Level 18 + 19), we stop using NextStage and use NextFinaleEvent instead
     public void NextFinaleEvent()
     {
+        gameUI.UpdateButtons(curPuzzle);
         curPuzzle++;
     }
 

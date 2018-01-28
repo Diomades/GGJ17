@@ -1,0 +1,25 @@
+[20:11]<GameDad> Wow, Ben, your friend wasn’t joking. The is pretty incredible!
+[20:11]<GameDad> The files were so small because it’s not the final product.
+[20:11]<GameDad> I started it up on that dedicated server they provided and it just.. Unfolded?
+[20:12]<Anzekay> huh. let me try connecting with it
+[20:15]<GameDad> Yep remote connections are active now.
+[20:18]<Anzekay> did.. did it just set up its own twitter account?
+[20:19]<Ninjeska> Not sure how I feel about its choice in twitter handle haha
+[20:19]<GameDad> Apparently! There’s mention in the documentation of using twitter for activation commands?
+[20:19]<Anzekay> I made it change the handle, Jess, it’s @Jambot18 now
+[20:19]<GameDad> What a strange design choice.
+[20:21]<Anzekay> I can’t claim to understand why they did that
+[20:22]<Ninjeska> That first tweet it sent seems a bit buggy..
+[20:22]<Anzekay> I just saw that too Jess
+[20:23]<GameDad> Probably just some early issues?
+é̷͞҉̸r̶̵̴͘͟r̷҉̷o̶͟͠ŗ̷̛͞
+[21:09]<Anzekay> yeah there we go, I told it to reset the twitter protocol and it got there eventually
+[21:11]<Ninjeska> Btw I found some good Unity videos for it
+[21:11]<Ninjeska> This kind of stuff suitable? https://youtu.be/8NbheuPORao
+[21:13]<GameDad> Looks good to me!
+[21:17]<Anzekay> yeah that’s great, thanks Jess!
+[21:23]<GameDad> I’ll see about getting it started on this stuff.
+[21:25]<GameDad> Will probably take it at least all night so best to start it early.
+[21:31]<Anzekay> agreed. I’ll go have that linguistics conversation with it too
+[21:34]<Ninjeska> kk
+[21:34]<Ninjeska> I will find some free art assets it can use~
