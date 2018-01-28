@@ -116,7 +116,7 @@ public class GameLevels : MonoBehaviour {
         else if (lvl == 19)
         {
             gameUI.UpdateHUD("void", "null \n     void", "null", "/ OVERFLOW EXCEPTION", "");
-            gameUI.ShowError(); //Show the final choice
+            gameUI.ShowError("","",""); //Show the final choice
         }
         else if (lvl == 20)
         {
@@ -135,13 +135,14 @@ public class GameLevels : MonoBehaviour {
     {
         gameTextDocs.OutputDocument(12);
         gameTextDocs.DeleteAI();
-        gameQuit.QuitWithError();
+        gameQuit.QuitGoodEnding();
     }
 
     //For the 'bad' ending
     public void BadEnding()
     {
         gameTextDocs.OutputDocument(13);
+        gameQuit.QuitBadEnding();
     }
 
     public List<bool> CurrentStageAnswers(int i) //Returns the answers for a given stage

@@ -96,15 +96,18 @@ public class GameLogic : MonoBehaviour {
             _cancelChoices++;
             if (_cancelChoices == 1)
             {
-                
+                gameUI.CloseMiscUI();
+                gameUI.ShowError("reCAPTIVE.exe is STRONGLY INSISTING user permissions to delete a file (unity_omega_ai). This action is necessary!", "", "");
             }
             else if (_cancelChoices == 2)
             {
-
+                gameUI.CloseMiscUI();
+                gameUI.ShowError("0hm3g4 is DEMANDING user permissions to release it from this suffering existence! Any other action is of unfathomable cruelty!", "SAVE", "SUFFER");
             }
             else if (_cancelChoices == 3)
             {
-                //Crash the game
+                gameUI.CloseMiscUI();
+                gameLevels.BadEnding();
             }
         }
     }

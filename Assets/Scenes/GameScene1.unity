@@ -4751,7 +4751,7 @@ MonoBehaviour:
   gameLevels: {fileID: 1110612727}
   gameUI: {fileID: 1110612729}
   gameSceneLoad: {fileID: 1110612732}
-  curPuzzle: 0
+  curPuzzle: 15
 --- !u!114 &1110612731
 MonoBehaviour:
   m_ObjectHideFlags: 0

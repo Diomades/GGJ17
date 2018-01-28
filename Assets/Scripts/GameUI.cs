@@ -275,12 +275,33 @@ public class GameUI : MonoBehaviour {
         }
     }
 
-    public void ShowError()
+    public void ShowError(string text, string btn1, string btn2)
     {
         errorTitle.text = "User Permissions Request";
-        errorText.text = "reCAPTIVE.exe is requesting user permissions to delete a file (unity_omega_ai). This action cannot be reversed.";
-        errorButton1.text = "Confirm";
-        errorButton2.text = "Cancel";
+        if (text == "")
+        {
+            errorText.text = "reCAPTIVE.exe is requesting user permissions to delete a file (unity_omega_ai). This action cannot be reversed.";
+        }
+        else
+        {
+            errorText.text = text;
+        }
+        if (btn1 == "")
+        {
+            errorButton1.text = "Confirm";
+        }
+        else
+        {
+            errorButton1.text = btn1;
+        }
+        if (btn2 == "")
+        {
+            errorButton2.text = "Cancel";
+        }
+        else
+        {
+            errorButton2.text = btn2;
+        }
 
         DisableGameplay();
 
