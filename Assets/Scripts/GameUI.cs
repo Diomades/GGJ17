@@ -56,6 +56,14 @@ public class GameUI : MonoBehaviour {
     public Text errorButton1;
     public Text errorButton2;
 
+    [Header("Login UI")]
+    public GameObject loginUI;
+    public Text loginText;
+    public InputField loginUser;
+    public InputField loginPass;
+    private string _username = "ggj18perth";
+    private string _password = "5ickne55";
+
     // Use this for initialization
     public void Initialise() {
         _gameButtons.Add(btn1.GetComponent<GameButton>());
@@ -279,12 +287,53 @@ public class GameUI : MonoBehaviour {
         errorUI.SetActive(true);
     }
 
+    public void ShowLogin()
+    {
+        DisableGameplay();
+
+        loginUI.SetActive(true);
+    }
+
+    public void LoginTest()
+    {
+        Debug.Log("LOGGING IN");
+    }
+
+    public void LoginSubmit()
+    {
+        if (loginUser.text == _username)
+        {
+            if (loginPass.text == _password)
+            {
+                Debug.Log("Successfully logged in!");
+            }
+            else
+            {
+                //Debug.Log("Login failed!");
+                LoginFailed();
+            }
+        }
+        else
+        {
+            //Debug.Log("Login failed!");
+            LoginFailed();
+        }
+    }
+
+    public void LoginFailed()
+    {
+        loginText.text = "Incorrect username and/or password. Please try again.";
+        loginPass.text = "";
+        loginUser.text = "";
+    }
+
     public void CloseMiscUI()
     {
         //Disable the appropriate UI's again
         robotUI.SetActive(false);
         warningUI.SetActive(false);
         errorUI.SetActive(false);
+        loginUI.SetActive(false);
 
         //Enable gameplay once more
         EnableGameplay();

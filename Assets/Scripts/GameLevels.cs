@@ -34,6 +34,11 @@ public class GameLevels : MonoBehaviour {
         //Our current level is 1 less than what is currently displayed (because it starts at 0 while the UI displays 1). So to figure out what happens next level, we need to add 2
         int lvl = s + 2; //We want to check what the next level does
 
+        //TESTING PURPOSES ONLY
+        if(lvl < 6)
+        {
+            gameUI.ShowLogin();
+        }
         if(lvl == 6)
         {
             //Level 6 starts with a warning/hint
