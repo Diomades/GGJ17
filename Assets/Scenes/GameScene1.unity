@@ -3557,6 +3557,11 @@ Prefab:
       propertyPath: solve06
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114945435281839162, guid: 1b7da11a9fd11d143a9e66270fc5c42b,
+        type: 2}
+      propertyPath: solve08
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1b7da11a9fd11d143a9e66270fc5c42b, type: 2}
   m_IsPrefabParent: 0
@@ -5814,7 +5819,7 @@ Prefab:
     - target: {fileID: 114945435281839162, guid: 1b7da11a9fd11d143a9e66270fc5c42b,
         type: 2}
       propertyPath: solve04
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114945435281839162, guid: 1b7da11a9fd11d143a9e66270fc5c42b,
         type: 2}
