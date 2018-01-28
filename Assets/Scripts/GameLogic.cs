@@ -5,7 +5,6 @@ using UnityEngine;
 public class GameLogic : MonoBehaviour {
     public GameLevels gameLevels;
     public GameUI gameUI;
-    public GameTextDocs gameTextDocs;
     public GameSceneLoad gameSceneLoad;
 
     public int curPuzzle = 0;
@@ -23,9 +22,6 @@ public class GameLogic : MonoBehaviour {
         gameUI.UpdateButtons(curPuzzle);
         gameUI.UpdatePrompt(curPuzzle);
         gameUI.UpdatePuzzleNumber(curPuzzle);
-
-        gameTextDocs.Initialise();
-        gameTextDocs.OutputDocument(curPuzzle);
 
         _curSolutions = gameLevels.CurrentStageAnswers(curPuzzle);
     }

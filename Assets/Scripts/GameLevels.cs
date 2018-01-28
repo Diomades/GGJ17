@@ -6,6 +6,7 @@ public class GameLevels : MonoBehaviour {
     public GameObject gameStages;
     public GameUI gameUI;
     public GameLogic gameLogic;
+    public GameTextDocs gameTextDocs;
 
     private List<List<bool>> _stages = new List<List<bool>>();
     private List<List<Sprite>> _images = new List<List<Sprite>>();
@@ -23,6 +24,9 @@ public class GameLevels : MonoBehaviour {
             _images.Add(s.StageImages);
             _prompts.Add(s.prompt);
         }
+
+        //Initialise the text docs
+        gameTextDocs.Initialise();
     }
 
     public void CheckScene(int s)
@@ -33,42 +37,62 @@ public class GameLevels : MonoBehaviour {
         if(lvl == 6)
         {
             //Level 6 starts with a warning/hint
-            gameUI.UpdateHUD("ciNNAMON DOGS", "", "", "", "");
+            gameUI.UpdateHUD("reCAP2IVE", "", "", "", "");
             gameLogic.NextStage(); //Run the next stage
+            gameTextDocs.OutputDocument(0);
             gameUI.ShowHint();
         }
         else if (lvl == 7)
         {
-            gameUI.UpdateHUD("doGS ARE PRETTY GREAT", "", "", "", ""); //Reset the logo
+            gameUI.UpdateHUD("doGS", "", "", "", "");
             gameLogic.NextStage(); //Run the next stage
+            gameTextDocs.OutputDocument(1);
         }
         else if(lvl == 8)
         {
             gameUI.UpdateHUD("reCAPTIVE", "", "", "", ""); //Reset the logo
             gameLogic.NextStage(); //Run the next stage
+            gameTextDocs.OutputDocument(3);
             gameUI.ShowNotARobot("", "");
         }
         else if(lvl == 11)
         {
             gameUI.UpdateHUD("", "", "", "/ OVERFLOW EXCEPTION", "");
             gameLogic.NextStage(); //Run the next stage
+            gameTextDocs.OutputDocument(5);
+            gameTextDocs.OutputDocument(10);
             gameUI.ShowWarning("", "Unhandled Exception", "reCAPTIVE.exe has encountered an unexpected error and failed at line 23 of GameQuit.cs.", "Continue");
+        }
+        else if (lvl == 12)
+        {
+            gameLogic.NextStage(); //Run the next stage
+            gameTextDocs.OutputDocument(4);
+            gameTextDocs.OutputDocument(8);
         }
         else if (lvl == 13)
         {
             gameUI.GlitchTimer(); //Screw with the timer
             gameLogic.NextStage(); //Run the next stage
+            gameTextDocs.OutputDocument(6);
             gameUI.ShowNotARobot("Do you love Cinnamon Rolls?", "S0lMTCBNRQ==");
+        }
+        else if (lvl == 14)
+        {
+            gameLogic.NextStage(); //Run the next stage
+            gameTextDocs.OutputDocument(7);
         }
         else if (lvl == 15)
         {
             gameUI.UpdateHUD("", "BOUGHT TO YOU BY JOHN KEATS\n CREATED FOR 1819 ODES", "", "/ OVERFLOW EXCEPTION", "");
             gameLogic.NextStage(); //Run the next stage
+            gameTextDocs.OutputDocument(9);
         }
         else if (lvl == 16)
         {
             gameUI.UpdateHUD("", "BOUGHT TO YOU BY @the0hm3g4\n CREATED UNDER DURESS", "", "/ OVERFLOW EXCEPTION", "");
             gameLogic.NextStage(); //Run the next stage
+            gameTextDocs.OutputDocument(2);
+            gameTextDocs.OutputDocument(11);
         }
         else if (lvl == 17)
         {
@@ -83,6 +107,11 @@ public class GameLevels : MonoBehaviour {
         else if (lvl == 19)
         {
             gameUI.ShowError(); //Show the final choice
+        }
+        else if (lvl == 20)
+        {
+            // The player chose to destroy the AI
+            gameTextDocs.OutputDocument(12);
         }
         else
         {

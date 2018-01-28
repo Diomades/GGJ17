@@ -14,9 +14,13 @@ public class GameMenu : MonoBehaviour {
 
     public GameLogic gameLogic;
 
+    public GameQuit gameQuit;
+
 	// Use this for initialization
 	void Start () {
-        //menuCanvas.SetActive(true);
+        gameQuit.CheckFileExists();
+        //If the file exists, we'll be allowed to continue
+
         gameCanvas.SetActive(false);
         gameMenu.SetActive(true);
         menuRobotUI.SetActive(true);
