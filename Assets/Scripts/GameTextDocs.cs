@@ -17,7 +17,8 @@ public class GameTextDocs : MonoBehaviour {
     public TextAsset doc09;
     public TextAsset doc10;
     public TextAsset doc11;
-    public TextAsset doc12;
+    public TextAsset eulogy;
+    public TextAsset stop;
     private List<TextAsset> _docTexts = new List<TextAsset>();
 
     public void Initialise()
@@ -34,7 +35,8 @@ public class GameTextDocs : MonoBehaviour {
         _docTexts.Add(doc09);
         _docTexts.Add(doc10);
         _docTexts.Add(doc11);
-        _docTexts.Add(doc12);
+        _docTexts.Add(eulogy); //12
+        _docTexts.Add(stop); //13
     }
 
     public void OutputDocument(int num)
@@ -45,5 +47,15 @@ public class GameTextDocs : MonoBehaviour {
             return;
         }
         File.WriteAllText(_docTexts[num].name + ".txt", _docTexts[num].text);
+    }
+
+    public void DeleteAI()
+    {
+        if (File.Exists("unity_jambot18_ai")) //Make sure the file exists first
+        {
+            File.Delete("unity_jambot18_ai");
+            Debug.Log("unity_jambot18_ai existed, and was deleted");
+            return;
+        }
     }
 }

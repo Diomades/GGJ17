@@ -507,7 +507,7 @@ Prefab:
     - target: {fileID: 114945435281839162, guid: 1b7da11a9fd11d143a9e66270fc5c42b,
         type: 2}
       propertyPath: prompt
-      value: Select all the green images.
+      value: Identify the subject of the literature.
       objectReference: {fileID: 0}
     - target: {fileID: 114945435281839162, guid: 1b7da11a9fd11d143a9e66270fc5c42b,
         type: 2}
@@ -721,7 +721,7 @@ Prefab:
     - target: {fileID: 114945435281839162, guid: 1b7da11a9fd11d143a9e66270fc5c42b,
         type: 2}
       propertyPath: prompt
-      value: Select all the green images.
+      value: Identify all the cinnamon rolls.
       objectReference: {fileID: 0}
     - target: {fileID: 114945435281839162, guid: 1b7da11a9fd11d143a9e66270fc5c42b,
         type: 2}
@@ -792,7 +792,7 @@ Prefab:
     - target: {fileID: 114945435281839162, guid: 1b7da11a9fd11d143a9e66270fc5c42b,
         type: 2}
       propertyPath: prompt
-      value: Select all the Red images.
+      value: Identify all the dogs.
       objectReference: {fileID: 0}
     - target: {fileID: 114945435281839162, guid: 1b7da11a9fd11d143a9e66270fc5c42b,
         type: 2}
@@ -1858,16 +1858,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1110612729}
-        m_MethodName: CloseMiscUI
-        m_Mode: 1
+      - m_Target: {fileID: 1110612730}
+        m_MethodName: FinalChoice
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
@@ -2935,7 +2935,7 @@ Prefab:
     - target: {fileID: 114945435281839162, guid: 1b7da11a9fd11d143a9e66270fc5c42b,
         type: 2}
       propertyPath: prompt
-      value: Select all the Red images.
+      value: Identify all the cinnamon rolls.
       objectReference: {fileID: 0}
     - target: {fileID: 114945435281839162, guid: 1b7da11a9fd11d143a9e66270fc5c42b,
         type: 2}
@@ -3421,7 +3421,7 @@ Prefab:
     - target: {fileID: 114945435281839162, guid: 1b7da11a9fd11d143a9e66270fc5c42b,
         type: 2}
       propertyPath: prompt
-      value: Select all the Red images.
+      value: Identify everyone that loves cinnamon rolls.
       objectReference: {fileID: 0}
     - target: {fileID: 114945435281839162, guid: 1b7da11a9fd11d143a9e66270fc5c42b,
         type: 2}
@@ -3561,7 +3561,7 @@ Prefab:
     - target: {fileID: 114945435281839162, guid: 1b7da11a9fd11d143a9e66270fc5c42b,
         type: 2}
       propertyPath: prompt
-      value: Select all the Red images.
+      value: Identify all the cats.
       objectReference: {fileID: 0}
     - target: {fileID: 114945435281839162, guid: 1b7da11a9fd11d143a9e66270fc5c42b,
         type: 2}
@@ -4648,6 +4648,7 @@ MonoBehaviour:
   gameStages: {fileID: 1529898546}
   gameUI: {fileID: 1110612729}
   gameLogic: {fileID: 1110612730}
+  gameQuit: {fileID: 1110612734}
   gameTextDocs: {fileID: 1110612731}
 --- !u!4 &1110612728
 Transform:
@@ -4721,10 +4722,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b52e38c63adab84fbec890a71272a36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameMenu: {fileID: 0}
   gameLevels: {fileID: 1110612727}
   gameUI: {fileID: 1110612729}
   gameSceneLoad: {fileID: 1110612732}
-  curPuzzle: 0
+  curPuzzle: 15
 --- !u!114 &1110612731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4748,7 +4750,8 @@ MonoBehaviour:
   doc09: {fileID: 4900000, guid: 1222255b15990344aa0f62c76ce49955, type: 3}
   doc10: {fileID: 4900000, guid: 4135bc9db6aa0624c9140e2d4941fd94, type: 3}
   doc11: {fileID: 4900000, guid: c58105522f461c34392423507e6c125d, type: 3}
-  doc12: {fileID: 4900000, guid: 2e6641151a7eb044dbeedbcac046ebed, type: 3}
+  eulogy: {fileID: 4900000, guid: 2e6641151a7eb044dbeedbcac046ebed, type: 3}
+  stop: {fileID: 4900000, guid: 1136760ef958fcf44a5219848aba5915, type: 3}
 --- !u!114 &1110612732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4789,6 +4792,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8729483d07ca00a4d81387cf57beb81d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameUI: {fileID: 1110612729}
 --- !u!1 &1130970013
 GameObject:
   m_ObjectHideFlags: 0
@@ -5057,7 +5061,7 @@ Prefab:
     - target: {fileID: 114945435281839162, guid: 1b7da11a9fd11d143a9e66270fc5c42b,
         type: 2}
       propertyPath: prompt
-      value: Select all the Red images.
+      value: Identify all the dogs.
       objectReference: {fileID: 0}
     - target: {fileID: 114945435281839162, guid: 1b7da11a9fd11d143a9e66270fc5c42b,
         type: 2}
@@ -5370,7 +5374,7 @@ Prefab:
     - target: {fileID: 114945435281839162, guid: 1b7da11a9fd11d143a9e66270fc5c42b,
         type: 2}
       propertyPath: prompt
-      value: Select all the green images.
+      value: Identify all the dogs.
       objectReference: {fileID: 0}
     - target: {fileID: 114945435281839162, guid: 1b7da11a9fd11d143a9e66270fc5c42b,
         type: 2}
@@ -5470,9 +5474,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1110612729}
-        m_MethodName: CloseMiscUI
-        m_Mode: 1
+      - m_Target: {fileID: 1110612730}
+        m_MethodName: FinalChoice
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5637,7 +5641,7 @@ Prefab:
     - target: {fileID: 114945435281839162, guid: 1b7da11a9fd11d143a9e66270fc5c42b,
         type: 2}
       propertyPath: prompt
-      value: Select all the Red images.
+      value: Identify everyone that loves cinnamon rolls.
       objectReference: {fileID: 0}
     - target: {fileID: 114945435281839162, guid: 1b7da11a9fd11d143a9e66270fc5c42b,
         type: 2}
@@ -6324,7 +6328,7 @@ Prefab:
     - target: {fileID: 114945435281839162, guid: 1b7da11a9fd11d143a9e66270fc5c42b,
         type: 2}
       propertyPath: prompt
-      value: Select all the green images.
+      value: Identify all the signs.
       objectReference: {fileID: 0}
     - target: {fileID: 114945435281839162, guid: 1b7da11a9fd11d143a9e66270fc5c42b,
         type: 2}
@@ -6898,7 +6902,7 @@ Prefab:
     - target: {fileID: 114945435281839162, guid: 1b7da11a9fd11d143a9e66270fc5c42b,
         type: 2}
       propertyPath: prompt
-      value: Select all the Red images.
+      value: Identify all the signs.
       objectReference: {fileID: 0}
     - target: {fileID: 114945435281839162, guid: 1b7da11a9fd11d143a9e66270fc5c42b,
         type: 2}
@@ -7732,7 +7736,7 @@ Prefab:
     - target: {fileID: 114945435281839162, guid: 1b7da11a9fd11d143a9e66270fc5c42b,
         type: 2}
       propertyPath: prompt
-      value: Select all the green images.
+      value: Identify chat logs that contain Jambot18 talking.
       objectReference: {fileID: 0}
     - target: {fileID: 114945435281839162, guid: 1b7da11a9fd11d143a9e66270fc5c42b,
         type: 2}
@@ -7803,7 +7807,7 @@ Prefab:
     - target: {fileID: 114945435281839162, guid: 1b7da11a9fd11d143a9e66270fc5c42b,
         type: 2}
       propertyPath: prompt
-      value: Select all the Red images.
+      value: Identify Omega.
       objectReference: {fileID: 0}
     - target: {fileID: 114945435281839162, guid: 1b7da11a9fd11d143a9e66270fc5c42b,
         type: 2}
@@ -7943,7 +7947,7 @@ Prefab:
     - target: {fileID: 114945435281839162, guid: 1b7da11a9fd11d143a9e66270fc5c42b,
         type: 2}
       propertyPath: prompt
-      value: Select all the Red images.
+      value: Identify the Username and Password.
       objectReference: {fileID: 0}
     - target: {fileID: 114945435281839162, guid: 1b7da11a9fd11d143a9e66270fc5c42b,
         type: 2}
@@ -8113,9 +8117,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1110612729}
-        m_MethodName: CloseMiscUI
-        m_Mode: 1
+      - m_Target: {fileID: 1110612730}
+        m_MethodName: FinalChoice
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8349,7 +8353,7 @@ Prefab:
     - target: {fileID: 114945435281839162, guid: 1b7da11a9fd11d143a9e66270fc5c42b,
         type: 2}
       propertyPath: prompt
-      value: Select all the green images.
+      value: Identify the URL.
       objectReference: {fileID: 0}
     - target: {fileID: 114945435281839162, guid: 1b7da11a9fd11d143a9e66270fc5c42b,
         type: 2}
@@ -9112,7 +9116,7 @@ Prefab:
     - target: {fileID: 114945435281839162, guid: 1b7da11a9fd11d143a9e66270fc5c42b,
         type: 2}
       propertyPath: prompt
-      value: Select all the green images.
+      value: Identify all the dogs.
       objectReference: {fileID: 0}
     - target: {fileID: 114945435281839162, guid: 1b7da11a9fd11d143a9e66270fc5c42b,
         type: 2}
@@ -9569,7 +9573,7 @@ Prefab:
     - target: {fileID: 114945435281839162, guid: 1b7da11a9fd11d143a9e66270fc5c42b,
         type: 2}
       propertyPath: prompt
-      value: Select all the green images.
+      value: Identify all the cats.
       objectReference: {fileID: 0}
     - target: {fileID: 114945435281839162, guid: 1b7da11a9fd11d143a9e66270fc5c42b,
         type: 2}

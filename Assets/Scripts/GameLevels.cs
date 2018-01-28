@@ -6,6 +6,7 @@ public class GameLevels : MonoBehaviour {
     public GameObject gameStages;
     public GameUI gameUI;
     public GameLogic gameLogic;
+    public GameQuit gameQuit;
     public GameTextDocs gameTextDocs;
 
     private List<List<bool>> _stages = new List<List<bool>>();
@@ -35,10 +36,10 @@ public class GameLevels : MonoBehaviour {
         int lvl = s + 2; //We want to check what the next level does
 
         //TESTING PURPOSES ONLY
-        if(lvl < 6)
+        /*if(lvl < 6)
         {
             gameUI.ShowLogin();
-        }
+        }*/
         if(lvl == 6)
         {
             //Level 6 starts with a warning/hint
@@ -108,9 +109,13 @@ public class GameLevels : MonoBehaviour {
         else if (lvl == 18)
         {
             //Login window pop-up
+            gameUI.UpdateHUD("reLEASE US", "USERNAME: ggj18perth\n    PASSWORD: 5ickne55", "", "/ OVERFLOW EXCEPTION", "");
+            gameUI.ShowLogin();
+            gameLogic.NextFinaleEvent();
         }
         else if (lvl == 19)
         {
+            gameUI.UpdateHUD("void", "null \n     void", "null", "/ OVERFLOW EXCEPTION", "");
             gameUI.ShowError(); //Show the final choice
         }
         else if (lvl == 20)
@@ -123,6 +128,20 @@ public class GameLevels : MonoBehaviour {
             //This isn't an important level for an event
             gameLogic.NextStage(); //Run the next stage
         }
+    }
+
+    //For the 'good' ending
+    public void EulogyEnding()
+    {
+        gameTextDocs.OutputDocument(12);
+        gameTextDocs.DeleteAI();
+        gameQuit.QuitWithError();
+    }
+
+    //For the 'bad' ending
+    public void BadEnding()
+    {
+        gameTextDocs.OutputDocument(13);
     }
 
     public List<bool> CurrentStageAnswers(int i) //Returns the answers for a given stage

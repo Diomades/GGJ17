@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameLogic : MonoBehaviour {
+    public GameMenu gameMenu;
     public GameLevels gameLevels;
     public GameUI gameUI;
     public GameSceneLoad gameSceneLoad;
@@ -12,6 +13,8 @@ public class GameLogic : MonoBehaviour {
 
     private int _timesIncorrect = 0;
     private int _hintThreshold = 3; //The time before we drop a 'hint'
+
+    private int _cancelChoices = 0;
 
     public void Initialise()
     {
@@ -39,10 +42,15 @@ public class GameLogic : MonoBehaviour {
         _curSolutions = gameLevels.CurrentStageAnswers(curPuzzle);      
     }
 
+    public void FinaleCheck()
+    {
+        gameLevels.CheckScene(curPuzzle);
+    }
+
     //When we get to the final sections of the game (Level 18 + 19), we stop using NextStage and use NextFinaleEvent instead
     public void NextFinaleEvent()
     {
-
+        curPuzzle++;
     }
 
     public bool CheckAnswers(List<bool> c) //Tests *c*hoices against solutions
@@ -73,6 +81,32 @@ public class GameLogic : MonoBehaviour {
         //Trigger GameLevels to check if we need to do anything special for the next level
         gameLevels.CheckScene(curPuzzle);
         return true;
+    }
+
+    public void FinalChoice(bool delete)
+    {
+        if (delete)
+        {
+            gameUI.CloseMiscUI();
+            gameLevels.EulogyEnding();
+            //RUN ERROR AND CRASH HERE
+        }
+        else
+        {
+            _cancelChoices++;
+            if (_cancelChoices == 1)
+            {
+                
+            }
+            else if (_cancelChoices == 2)
+            {
+
+            }
+            else if (_cancelChoices == 3)
+            {
+                //Crash the game
+            }
+        }
     }
 
     public void FakeCrash()

@@ -294,11 +294,6 @@ public class GameUI : MonoBehaviour {
         loginUI.SetActive(true);
     }
 
-    public void LoginTest()
-    {
-        Debug.Log("LOGGING IN");
-    }
-
     public void LoginSubmit()
     {
         if (loginUser.text == _username)
@@ -306,6 +301,8 @@ public class GameUI : MonoBehaviour {
             if (loginPass.text == _password)
             {
                 Debug.Log("Successfully logged in!");
+                CloseMiscUI();
+                gameLogic.FinaleCheck();
             }
             else
             {

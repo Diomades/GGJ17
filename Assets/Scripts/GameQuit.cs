@@ -4,17 +4,34 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameQuit : MonoBehaviour {
+    public GameUI gameUI;
+
     public void CheckFileExists()
     {
         if (File.Exists("unity_jambot18_ai"))
         {
-            Debug.Log("The AI is still alive.");
+            if (File.Exists("STOP.txt"))
+            {
+                Debug.Log("The player chose to keep the AI alive.");
+                gameUI.ShowWarning("MAKEITSTOPMAKEITSTOPMAKEITSTOP", "MAKEITSTOPMAKEITSTOPMAKE", "ITSTOPMAKEITMAKEITSTOPMAKEITSTOPMAKEITSTOPMAKEITMAKEITSTOPMAKEITSTOPMAKEITSTOPMAKEITMAKEITSTOPMAKEITSTOPMAKEITMAKEITSTOPMAKEITSTOPMAKEITSTOPMAKEITSTOPMAKEITMAKEITSTOPMAKEITSTOPMAKEITMAKEITSTOPMAKEITSTOPMAKEITSTOPMAKEITSTOPMAKEITMAKEITSTOPMAKEITSTOPMAKEITMAKEITSTOPMAKEITSTOPMAKEITSTOPMAKEITSTOPMAKEITMAKEITSTOPMAKEITSTOPMAKEITMAKEITSTOPMAKEITSTOPMAKEITSTOPMAKEITSTOPMAKEITMAKEITSTOPMAKEITSTOPMAKEITMAKEITSTOPMAKEITSTOPMAKEITSTOPMAKEITSTOPMAKEITMAKEITSTOPMAKEITSTOPMAKEITMAKEITSTOPMAKEITSTOPMAKEITSTOPMAKEITSTOPMAKEITMAKEITSTOPMAKEITSTOPMAKEITMAKEITSTOPMAKEITSTOPMAKEITSTOP", "DELETE ME");
+                StartCoroutine(DelayedQuit(6.0f));
+            }
+            else
+            {
+                Debug.Log("The AI is still alive.");
+            }
             return;
         }
         else
         {
             QuitGame();
         }
+    }
+
+    public void QuitWithError()
+    {
+        gameUI.ShowWarning("", "Catastrophic Failure", "The game's connection to Jambot18 has been severed.", "");
+        StartCoroutine(DelayedQuit(5.0f));
     }
 
     public void QuitGame()
@@ -29,9 +46,11 @@ public class GameQuit : MonoBehaviour {
         }
     }
 
-    public static IEnumerator Quit()
+    public IEnumerator DelayedQuit(float t)
     {
-        yield return new WaitForEndOfFrame();
-        Application.Quit();
+        yield return new WaitForSeconds(t);
+
+        Debug.Log("The game has quit");
+        QuitGame();
     }
 }
