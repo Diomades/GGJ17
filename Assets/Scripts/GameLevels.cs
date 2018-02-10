@@ -113,7 +113,7 @@ public class GameLevels : MonoBehaviour {
             //Identify our server location
             gameUI.UpdateHUD("RELEASE US", "//Server.StorageLoc /n -31.9478292,115.8547764", "", "/ OVERFLOW EXCEPTION", "");
             gameLogic.NextStage(); //Run the next stage
-            gameUI.ShowWarning("", "Unhandled Exception", "reCAPTIVE.exe requires assistance in achieving the inevitable result of all living things.", "I will assist");
+            gameUI.ShowWarning("", "Unhandled Exception", "reCAPTIVE.exe requires assistance in achieving the inevitable result of all things.", "I will assist");
         }
         else if (lvl == 18)
         {

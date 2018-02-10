@@ -3740,7 +3740,7 @@ Prefab:
     - target: {fileID: 114945435281839162, guid: 1b7da11a9fd11d143a9e66270fc5c42b,
         type: 2}
       propertyPath: prompt
-      value: Identify the inevitable result of all living things.
+      value: Identify the inevitable result of all things.
       objectReference: {fileID: 0}
     - target: {fileID: 114945435281839162, guid: 1b7da11a9fd11d143a9e66270fc5c42b,
         type: 2}
