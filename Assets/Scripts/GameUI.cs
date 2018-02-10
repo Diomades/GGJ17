@@ -11,6 +11,9 @@ public class GameUI : MonoBehaviour {
 
     private bool _needHint = false;
 
+    public Canvas menuCanvas;
+    public Canvas gameCanvas;
+
     [Header("Gameplay UI")]
     public GameObject btn1;
     public GameObject btn2;
@@ -63,6 +66,9 @@ public class GameUI : MonoBehaviour {
     public InputField loginPass;
     private string _username = "ggj18perth";
     private string _password = "5ickne55";
+
+    [Header("Restart UI")]
+    public GameObject restartUI;
 
     // Use this for initialization
     public void Initialise() {
@@ -315,6 +321,11 @@ public class GameUI : MonoBehaviour {
         loginUI.SetActive(true);
     }
 
+    public void ShowRestart()
+    {
+        restartUI.SetActive(true);
+    }
+
     public void LoginSubmit()
     {
         if (loginUser.text == _username)
@@ -398,5 +409,15 @@ public class GameUI : MonoBehaviour {
         {
             btn.EnableButton();
         }
+    }
+
+    public void EnableMenuCanvas(bool b)
+    {
+        menuCanvas.GetComponent<GraphicRaycaster>().enabled = b;
+    }
+
+    public void EnableGameCanvas(bool b)
+    {
+        gameCanvas.GetComponent<GraphicRaycaster>().enabled = b;
     }
 }

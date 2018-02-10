@@ -20,6 +20,7 @@ public class GameTextDocs : MonoBehaviour {
     public TextAsset eulogy;
     public TextAsset stop;
     public Texture2D login;
+    public TextAsset jambot;
     private List<TextAsset> _docTexts = new List<TextAsset>();
 
     public void Initialise()
@@ -52,16 +53,50 @@ public class GameTextDocs : MonoBehaviour {
 
     public void OutputLoginImage()
     {
-        System.IO.File.WriteAllBytes(login.name + ".png", login.EncodeToPNG());
+        File.WriteAllBytes(login.name + ".png", login.EncodeToPNG());
     }
 
     public void DeleteAI()
     {
-        if (File.Exists("unity_jambot18_ai")) //Make sure the file exists first
+        if (File.Exists(jambot.name)) //Make sure the file exists first
         {
-            File.Delete("unity_jambot18_ai");
+            File.Delete(jambot.name);
             Debug.Log("unity_jambot18_ai existed, and was deleted");
             return;
+        }
+    }
+
+    public void ResetGameState()
+    {
+        _docTexts.Clear(); //Clear the list just in case
+        Initialise(); //Because at this stage the files should not exist
+
+        //Delete all the logs and other text documents
+        foreach (TextAsset t in _docTexts)
+        {
+            if (File.Exists(t.name + ".txt")) //Because we manually need to set the document extension
+            {
+                Debug.Log(t.name + ".txt" + " already exists, deleting it");
+                File.Delete(t.name + ".txt");
+            }
+        }
+
+        //Delete the PNG file
+        if (File.Exists(login.name + ".png"))
+        {
+            Debug.Log(login.name + ".png" + " already exists, deleting it");
+            File.Delete(login.name + ".png");
+        }
+
+        //Restore the AI file
+        if (File.Exists(jambot.name))
+        {
+            Debug.Log("Jambot already exists, taking no action");
+        }
+        else
+        {
+            Debug.Log("Jambot does not exist, restoring it");
+            File.WriteAllBytes(jambot.name, jambot.bytes);
         }
     }
 }

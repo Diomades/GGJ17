@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GameQuit : MonoBehaviour {
     public GameUI gameUI;
+    public GameTextDocs gameText;
 
     public void CheckFileExists()
     {
@@ -14,7 +15,7 @@ public class GameQuit : MonoBehaviour {
             {
                 Debug.Log("The player chose to keep the AI alive.");
                 gameUI.ShowWarning("MAKEITSTOPMAKEITSTOPMAKEITSTOP", "MAKEITSTOPMAKEITSTOPMAKE", "ITSTOPMAKEITMAKEITSTOPMAKEITSTOPMAKEITSTOPMAKEITMAKEITSTOPMAKEITSTOPMAKEITSTOPMAKEITMAKEITSTOPMAKEITSTOPMAKEITMAKEITSTOPMAKEITSTOPMAKEITSTOPMAKEITSTOPMAKEITMAKEITSTOPMAKEITSTOPMAKEITMAKEITSTOPMAKEITSTOPMAKEITSTOPMAKEITSTOPMAKEITMAKEITSTOPMAKEITSTOPMAKEITMAKEITSTOPMAKEITSTOPMAKEITSTOPMAKEITSTOPMAKEITMAKEITSTOPMAKEITSTOPMAKEITMAKEITSTOPMAKEITSTOPMAKEITSTOPMAKEITSTOPMAKEITMAKEITSTOPMAKEITSTOPMAKEITMAKEITSTOPMAKEITSTOPMAKEITSTOPMAKEITSTOPMAKEITMAKEITSTOPMAKEITSTOPMAKEITMAKEITSTOPMAKEITSTOPMAKEITSTOPMAKEITSTOPMAKEITMAKEITSTOPMAKEITSTOPMAKEITMAKEITSTOPMAKEITSTOPMAKEITSTOP", "DELETE ME");
-                StartCoroutine(DelayedQuit(6.0f));
+                StartCoroutine(DelayedError(6.0f));
             }
             else
             {
@@ -24,7 +25,8 @@ public class GameQuit : MonoBehaviour {
         }
         else
         {
-            QuitGame();
+            gameUI.ShowWarning("", "Catastrophic Failure", "The game's connection to Jambot18 has been severed.", "");
+            StartCoroutine(DelayedError(6.0f));
         }
     }
 
@@ -54,6 +56,9 @@ public class GameQuit : MonoBehaviour {
 
     public IEnumerator DelayedQuit(float t)
     {
+        gameUI.EnableGameCanvas(false); //Disable the gameplay canvas
+        gameUI.EnableMenuCanvas(false); //Disable the game menu
+
         yield return new WaitForSeconds(t);
 
         Debug.Log("The game has quit");
@@ -62,9 +67,20 @@ public class GameQuit : MonoBehaviour {
 
     public IEnumerator DelayedError(float t)
     {
+        gameUI.EnableGameCanvas(false); //Disable the gameplay canvas
+        gameUI.EnableMenuCanvas(false); //Disable the game menu
+
         yield return new WaitForSeconds(t);
 
         Debug.Log("The game has suffered an error");
+        gameUI.EnableMenuCanvas(true); //Enable the game menu
+        gameUI.EnableGameCanvas(true); //Enable the gameplay canvas
+        gameUI.ShowRestart(); //Show the RestartUI
+    }
+
+    public void RestoreGame()
+    {
+        gameText.ResetGameState();
         QuitGame();
     }
 }

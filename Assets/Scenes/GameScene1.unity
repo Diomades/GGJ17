@@ -1762,7 +1762,7 @@ GameObject:
   - component: {fileID: 320169870}
   - component: {fileID: 320169869}
   m_Layer: 5
-  m_Name: RestartButton
+  m_Name: ResetButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1784,7 +1784,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -173.3, y: -91}
+  m_AnchoredPosition: {x: -173.3, y: -114.999985}
   m_SizeDelta: {x: 265.4, y: 49.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &320169869
@@ -1825,7 +1825,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 320169870}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1110612734}
+        m_MethodName: RestoreGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &320169870
@@ -5570,6 +5581,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameLogic: {fileID: 1110612730}
   gameLevels: {fileID: 1110612727}
+  menuCanvas: {fileID: 1476134843}
+  gameCanvas: {fileID: 1943620786}
   btn1: {fileID: 298365945}
   btn2: {fileID: 475757440}
   btn3: {fileID: 1043572744}
@@ -5605,6 +5618,7 @@ MonoBehaviour:
   loginText: {fileID: 895040394}
   loginUser: {fileID: 769714420}
   loginPass: {fileID: 919628837}
+  restartUI: {fileID: 1382237906}
 --- !u!114 &1110612730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5616,11 +5630,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b52e38c63adab84fbec890a71272a36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameMenu: {fileID: 0}
+  gameMenu: {fileID: 1110612733}
   gameLevels: {fileID: 1110612727}
   gameUI: {fileID: 1110612729}
   gameSceneLoad: {fileID: 1110612732}
-  curPuzzle: 13
+  curPuzzle: 0
 --- !u!114 &1110612731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5647,6 +5661,7 @@ MonoBehaviour:
   eulogy: {fileID: 4900000, guid: 2e6641151a7eb044dbeedbcac046ebed, type: 3}
   stop: {fileID: 4900000, guid: 1136760ef958fcf44a5219848aba5915, type: 3}
   login: {fileID: 2800000, guid: 4cc4d456dd7b0b84fa879bc0ec648e7f, type: 3}
+  jambot: {fileID: 4900000, guid: 0ea8fd9f37114f748bc024bdb6603bd9, type: 3}
 --- !u!114 &1110612732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5688,6 +5703,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameUI: {fileID: 1110612729}
+  gameText: {fileID: 1110612731}
 --- !u!114 &1110612735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6210,8 +6226,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000022888, y: 6.8535595}
-  m_SizeDelta: {x: 1114.5, y: 110.4}
+  m_AnchoredPosition: {x: 0.000022888, y: -4.7}
+  m_SizeDelta: {x: 1114.5, y: 133.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1206488365
 MonoBehaviour:
@@ -6246,7 +6262,8 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Reset all data and connections to the server? \n\nThis will wipe any progress
-    within the game, and JamBot18 will restore from its last backup."
+    within the game and JamBot18 will restore from its last backup. \nreCAPTIVE.exe
+    will close and need to be re-opened for these changes to take effect."
 --- !u!222 &1206488366
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7065,7 +7082,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: RESTART
+  m_Text: RESET
 --- !u!222 &1360597287
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7208,7 +7225,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1382237907
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9534,7 +9551,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 172, y: -91}
+  m_AnchoredPosition: {x: 172, y: -115}
   m_SizeDelta: {x: 265.4, y: 49.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1936255447
@@ -9575,7 +9592,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1936255448}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1110612734}
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1936255448
@@ -9678,7 +9706,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: reCAPTIVE.EXE has encountered a critical error.
+  m_Text: reCAPTIVE.EXE has encountered a critical error
 --- !u!222 &1937502789
 CanvasRenderer:
   m_ObjectHideFlags: 0
