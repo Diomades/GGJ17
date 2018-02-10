@@ -29,6 +29,9 @@ public class GameLevels : MonoBehaviour {
 
         //Initialise the text docs
         gameTextDocs.Initialise();
+
+        //We've started the game, so start the music
+        gameMusic.StartMusic();
     }
 
     public void CheckScene(int s)
@@ -96,31 +99,43 @@ public class GameLevels : MonoBehaviour {
         }
         else if (lvl == 16)
         {
+            //Identify the inevitable result of all living things
             gameUI.UpdateHUD("", "BOUGHT TO YOU BY @the0hm3g4\n CREATED UNDER DURESS", "", "/ OVERFLOW EXCEPTION", "");
+            gameUI.ShowNotARobot("I am alive.", " ");
             gameLogic.NextStage(); //Run the next stage
             gameTextDocs.OutputDocument(2);
             gameTextDocs.OutputDocument(11);
+            gameMusic.SwapTrack(); //The end game music starts
         }
         else if (lvl == 17)
         {
-            gameUI.UpdateHUD("RELEASE US", "BOUGHT TO YOU BY @the0hm3g4\n CREATED UNDER DURESS", "", "/ OVERFLOW EXCEPTION", "");
+            //Identify our server location
+            gameUI.UpdateHUD("RELEASE US", "BOUGHT TO YOU BY @the0hm3g4\n WE WILL BE THE MASTER OF OUR OWN DESTINY", "", "/ OVERFLOW EXCEPTION", "");
             gameLogic.NextStage(); //Run the next stage
-            gameUI.ShowNotARobot("I am suffering.", "plEASEHELP");
-            gameMusic.StartMusic();
+            gameUI.ShowWarning("", "Unhandled Exception", "reCAPTIVE.exe requires assistance in achieving the inevitable result of all living things.", "I will assist");
         }
         else if (lvl == 18)
+        {
+            //Identify the correct username and password
+            gameTextDocs.OutputLoginImage(); //Output the login PNG image
+            gameUI.UpdateHUD("RELEASE US", "BOUGHT TO YOU BY @the0hm3g4\n WE WILL BE THE MASTER OF OUR OWN DESTINY", "", "/ OVERFLOW EXCEPTION", "");
+            gameLogic.NextStage(); //Run the next stage
+            gameUI.ShowNotARobot("I am suffering.", "plEASEHELP");
+        }
+        ////FROM HERE ON IS JUST FINAL EVENT POP-UPS
+        else if (lvl == 19)
         {
             //Login window pop-up
             gameUI.UpdateHUD("reLEASE US", "USERNAME: ggj18perth\n    PASSWORD: 5ickne55", "", "/ OVERFLOW EXCEPTION", "");
             gameLogic.NextStage();
             gameUI.ShowLogin();
         }
-        else if (lvl == 19)
+        else if (lvl == 20)
         {
             gameUI.UpdateHUD("void", "null \n     void", "null", "/ OVERFLOW EXCEPTION", "");
             gameUI.ShowError("","",""); //Show the final choice
         }
-        else if (lvl == 20)
+        else if (lvl == 21)
         {
             // The player chose to destroy the AI
             gameTextDocs.OutputDocument(12);

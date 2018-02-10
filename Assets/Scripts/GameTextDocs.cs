@@ -19,6 +19,7 @@ public class GameTextDocs : MonoBehaviour {
     public TextAsset doc11;
     public TextAsset eulogy;
     public TextAsset stop;
+    public Texture2D login;
     private List<TextAsset> _docTexts = new List<TextAsset>();
 
     public void Initialise()
@@ -47,6 +48,11 @@ public class GameTextDocs : MonoBehaviour {
             return;
         }
         File.WriteAllText(_docTexts[num].name + ".txt", _docTexts[num].text);
+    }
+
+    public void OutputLoginImage()
+    {
+        System.IO.File.WriteAllBytes(login.name + ".png", login.EncodeToPNG());
     }
 
     public void DeleteAI()

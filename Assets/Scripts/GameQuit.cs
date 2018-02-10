@@ -59,4 +59,12 @@ public class GameQuit : MonoBehaviour {
         Debug.Log("The game has quit");
         QuitGame();
     }
+
+    public IEnumerator DelayedError(float t)
+    {
+        yield return new WaitForSeconds(t);
+
+        Debug.Log("The game has suffered an error");
+        QuitGame();
+    }
 }

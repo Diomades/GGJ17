@@ -13,11 +13,11 @@ public class GameMenu : MonoBehaviour {
     public Toggle menuRobotUIToggle;
 
     public GameLogic gameLogic;
-
     public GameQuit gameQuit;
 
 	// Use this for initialization
 	void Start () {
+        Application.runInBackground = true; //Make sure the game always runs while minimised
         gameQuit.CheckFileExists();
         //If the file exists, we'll be allowed to continue
 
