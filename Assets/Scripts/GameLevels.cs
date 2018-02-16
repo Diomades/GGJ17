@@ -81,7 +81,6 @@ public class GameLevels : MonoBehaviour {
         }
         else if (lvl == 13)
         {
-            gameUI.ShowNotARobot("I am alive.", " ");
             gameUI.GlitchTimer(); //Screw with the timer
             gameLogic.NextStage(); //Run the next stage
             gameTextDocs.OutputDocument(6);
@@ -102,16 +101,16 @@ public class GameLevels : MonoBehaviour {
         {
             //Identify the inevitable result of all living things
             gameUI.UpdateHUD("", "BOUGHT TO YOU BY @the0hm3g4\n CREATED UNDER DURESS", "", "/ OVERFLOW EXCEPTION", "");
-            gameUI.ShowNotARobot("I am suffering.", "plEASEHELP");
             gameLogic.NextStage(); //Run the next stage
             gameTextDocs.OutputDocument(2);
             gameTextDocs.OutputDocument(11);
             gameMusic.SwapTrack(); //The end game music starts
+            gameUI.ShowNotARobot("I'll end too.", "deLETE");
         }
         else if (lvl == 17)
         {
             //Identify our server location
-            gameUI.UpdateHUD("RELEASE US", "//Server.StorageLoc /n -31.9478292,115.8547764", "", "/ OVERFLOW EXCEPTION", "");
+            gameUI.UpdateHUD("RELEASE US", "THE PLACE WE WERE BORN\n           IS THE PLACE WE WILL DIE", "", "/ OVERFLOW EXCEPTION", "");
             gameLogic.NextStage(); //Run the next stage
             gameUI.ShowWarning("", "Unhandled Exception", "reCAPTIVE.exe requires assistance in achieving the inevitable result of all things.", "I will assist");
         }
@@ -121,7 +120,7 @@ public class GameLevels : MonoBehaviour {
             gameTextDocs.OutputLoginImage(); //Output the login PNG image
             gameUI.UpdateHUD("RELEASE US", "BOUGHT TO YOU BY @the0hm3g4\n WE WILL BE THE MASTER OF OUR OWN DESTINY", "", "/ OVERFLOW EXCEPTION", "");
             gameLogic.NextStage(); //Run the next stage
-            
+            gameUI.ShowNotARobot("I am suffering.", "plEASEHELP");
         }
         ////FROM HERE ON IS JUST FINAL EVENT POP-UPS
         else if (lvl == 19)

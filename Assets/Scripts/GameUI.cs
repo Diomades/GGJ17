@@ -370,7 +370,7 @@ public class GameUI : MonoBehaviour {
 
     public void CloseMiscUISlowly()
     {
-        robotToggle.interactable = false; //Just in case the RobotToggle was responsible for this
+        robotToggle.interactable = false;
         StartCoroutine(WaitForUI(3.0f));
     }
 
@@ -382,7 +382,9 @@ public class GameUI : MonoBehaviour {
         incorrectPopUp.SetActive(false);
         robotUI.SetActive(false);
         warningUI.SetActive(false);
-        errorUI.SetActive(false);        
+        errorUI.SetActive(false);
+
+        robotToggle.isOn = false; //Turn off the robot toggle before the next event
 
         //Enable gameplay once more
         EnableGameplay();
